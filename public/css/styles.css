@@ -30,6 +30,11 @@
 }
 
 /* Links */
+
+a {
+    color: inherit;
+}
+
 a:visited {
     color: inherit;
 }
@@ -54,11 +59,10 @@ a:visited {
 /* Copyright Footer */
 .copyright-footer {
     display: flex;
-    position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: #5DB7DE;
-    color: #FFFFFF;
+    color: #b6bdc0;
+    height:40px;
     justify-content: center;
 }
 
