@@ -1,0 +1,12 @@
+extends common/layout 
+
+block main-content 
+    .main-content 
+        div.hero
+            h1.hero__title Embark on a journey through your imagination.
+            p.hero__subtitle Explore endless stories at Gutenberg, your gateway to literary adventures.
+            div.hero__cta.button 
+                a(href="/catalogue") View our Catalogue
+
+        h2.page-title Today's Top Trending Texts
+        include common/books.pug

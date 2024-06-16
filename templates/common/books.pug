@@ -1,0 +1,10 @@
+section.books
+    ul.books-list
+        each book in books 
+            li.book
+                img.book__image(src=`img/${book.image}`)
+                h3.book__name= book.name
+                h4.book__author= book.author
+                p.book__price= `$${book.price}`
+                a.book__add-to-cart.button + Add To Cart
+                    

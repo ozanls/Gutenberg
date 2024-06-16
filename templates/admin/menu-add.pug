@@ -1,0 +1,32 @@
+extends ../common/layout
+
+block main-content
+    div.menu
+        h1 Add a book
+        form(method="post", action="/admin/menu/add/submit")
+            div 
+                label(for="name").menu-label Name: 
+                input(type="text", id="name", name="name")
+            div 
+                label(for="description").menu-label Description: 
+                input(type="text", id="description", name="description")
+            div 
+                label(for="author").menu-label Author: 
+                input(type="text", id="author", name="author")
+            div 
+                label(for="publisher").menu-label Publisher: 
+                input(type="text", id="publisher", name="publisher")
+            div 
+                label(for="category").menu-label Category: 
+                input(type="text", id="category", name="category")
+            div 
+                label(for="price").menu-label Price: 
+                input(type="number", id="price", name="price", step="0.01")
+            div 
+                label(for="releasedate").menu-label Release Date: 
+                input(type="date", id="releasedate", name="releasedate")
+            div 
+                label(for="image").menu-label Cover Art (file name): 
+                input(type="text", id="image", name="image")
+            div.menu__submit 
+                button(type="submit") Submit

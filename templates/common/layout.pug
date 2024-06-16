@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        title #{title} | Gutenberg
+        link(rel="stylesheet", href="/css/styles.css")
+        block scripts
+            script(src="/js/common.js")
+    body
+        include navbar.pug
+        main#main
+            block main-content
+        footer#footer 
+            div.copyright-footer &copy; Copyright HTTP5222, 2024.

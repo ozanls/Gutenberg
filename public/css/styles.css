@@ -1,0 +1,192 @@
+/* Importing 'Prata' from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Prata&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Global Rules*/
+* {
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: 'Prompt', Courier, monospace;
+}
+
+.page-title {
+    text-align: center;
+    line-height: 128px;
+    font-family: 'Prata', Courier, monospace;
+}
+
+.button {
+    cursor: pointer;
+    background-color: #5DB7DE;
+    color: #FFFFFF;
+    border: 1px solid #5DB7DE;
+    padding: 8px;
+    border-radius: 4px;
+    transition-duration: 0.2s;
+}
+
+/* Links */
+a:visited {
+    color: inherit;
+}
+
+/* Navigation */
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: #5DB7DE;
+    color: #FFFFFF;
+    padding: 16px 32px;
+}
+
+.nav__links {
+    display: flex;
+    column-gap: 64px;
+}
+
+
+/* Copyright Footer */
+.copyright-footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #5DB7DE;
+    color: #FFFFFF;
+    justify-content: center;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 16px;
+    height: 30em;
+    background-color: #edf5f8;
+}
+
+.hero__title, .nav__logo {
+    font-family: 'Prata', Courier, monospace;
+}
+
+/* Book Cards */
+.books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 16px;
+}
+
+.books-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 80%;
+    padding-bottom: 30px;
+}
+
+.book {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 16px;
+    width: 400px;
+    background-color: #FFFFFF;
+    border: 1px solid #5DB7DE;
+    margin: 4px;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.2);
+    transition-duration: 0.2s;
+}
+
+.book:hover {
+    background-color: #edf5f8;
+}
+
+.book__image-div {
+    display: flex;
+    height: 300px;
+    justify-content: center;
+}
+
+.book__image {
+    width: 200px;
+}
+
+.book__author {
+    font-weight: 300;
+}
+
+.button:hover {
+    background-color: #FFFFFF;
+    color: #5DB7DE;
+}
+
+/* Admin Menu */
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 16px;
+}
+
+.menu-label {
+    display: block;
+}
+
+.menu__submit {
+    padding-top: 16px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* About Section */
+.split {
+    height: 100vh;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    overflow-x: hidden;
+    z-index: -1;
+    padding-top: 20px;
+}
+
+.left, .right {
+    height: 100vh;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.centered img {
+    max-height: 100vh;
+}
+
+.about-cta{
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    margin-top: 32px;
+}
