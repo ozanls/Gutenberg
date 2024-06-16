@@ -29,7 +29,7 @@ app.get("/", async (request, response) => {
 });
 app.get("/catalogue", async (request, response) => {
     let books = await getBooks();
-    response.render("catalogue", { title: "Home", books: books});
+    response.render("catalogue", { title: "Catalogue", books: books});
 });
 app.get("/about", (request, response) => {
     response.render("about", {title: "About"})
