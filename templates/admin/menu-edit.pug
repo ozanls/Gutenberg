@@ -10,7 +10,7 @@ block main-content
                 input(type="text", id="name", name="name", value=book.name)
             div 
                 label(for="description").menu-label Description: 
-                textarea(type="textbox", id="description", name="description", rows="2")
+                textarea(type="textbox", id="description", name="description", rows="2") #{book.description}
             div 
                 label(for="author").menu-label Author: 
                 input(type="text", id="author", name="author", value=book.author )
