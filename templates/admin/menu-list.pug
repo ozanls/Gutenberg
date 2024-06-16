@@ -2,7 +2,7 @@ extends ../common/layout
 
 block main-content 
     div.menu
-        h2.page-title Menu Links 
+        h1.page-title Menu Links 
         table 
             thead
                 tr 
@@ -12,9 +12,13 @@ block main-content
                 each book in books 
                     tr 
                         td #{book.name} #{book.path} 
-                        td
+                        td.menu__options
+                            form(action="/admin/menu/edit")
+                                input(type="hidden", name="bookId", value=book._id)
+                                button.button.menu__options__edit(type="button" onclick=`location.href='/admin/menu/edit/${book._id}'`) Edit   
                             form(action="/admin/menu/delete")
                                 input(type="hidden", name="bookId", value=book._id)
-                                button(type="submit") Delete
+                                button.button.menu__options__delete(type="submit") Delete
+                     
         div.button
             a(href="/admin/menu/add") + Add Book

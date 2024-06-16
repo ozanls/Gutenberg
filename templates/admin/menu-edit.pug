@@ -2,31 +2,32 @@ extends ../common/layout
 
 block main-content
     div.menu
-        h1.page-title Add a book
-        form(method="post", action="/admin/menu/add/submit")
+        h1.page-title Edit a book
+        form(method="post", action=`/admin/menu/edit/${book._id}/submit`)
+            input(type="hidden" name="id" value=book._id)
             div 
                 label(for="name").menu-label Name: 
-                input(type="text", id="name", name="name")
+                input(type="text", id="name", name="name", value=book.name)
             div 
                 label(for="description").menu-label Description: 
                 textarea(type="textbox", id="description", name="description", rows="2")
             div 
                 label(for="author").menu-label Author: 
-                input(type="text", id="author", name="author")
+                input(type="text", id="author", name="author", value=book.author )
             div 
                 label(for="publisher").menu-label Publisher: 
-                input(type="text", id="publisher", name="publisher")
+                input(type="text", id="publisher", name="publisher", value=book.publisher)
             div 
                 label(for="category").menu-label Category: 
-                input(id="category", name="category")
+                input(type="text", id="category", name="category" value=book.category)
             div 
                 label(for="price").menu-label Price: 
-                input(type="number", id="price", name="price", step="0.01")
+                input(type="number", id="price", name="price", step="0.01" value=book.price)
             div 
                 label(for="releasedate").menu-label Release Date: 
-                input(type="date", id="releasedate", name="releasedate")
+                input(type="date", id="releasedate", name="releasedate" value=book.releasedate)
             div 
                 label(for="image").menu-label Cover Art (file name): 
-                input(type="text", id="image", name="image")
+                input(type="text", id="image", name="image" value=book.image)
             div.menu__submit 
                 button(type="submit") Submit

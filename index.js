@@ -41,6 +41,12 @@ app.get("/admin/menu", async(request, response) => {
 app.get("/admin/menu/add", (request, response) => {
     response.render("admin/menu-add", {title: "Add a book"})
 })
+app.get("/admin/menu/edit/:id", async(request, response) => {
+    let bookId = request.params.id;
+    let book = await getBookById(bookId);
+    response.render("admin/menu-edit", {title: "Edit a book", book: book})
+})
+
 
 // Path for processing 'Add Book' form
 app.post("/admin/menu/add/submit", async (request, response) => {
@@ -64,6 +70,23 @@ app.post("/admin/menu/add/submit", async (request, response) => {
         }
     await addBook(newBook);
     response.redirect("/")
+})
+
+// Path for processing 'Edit Book' form
+app.post("/admin/menu/edit/:id/submit", async (request, response) => {
+    let id = request.body.id;
+    let editedBook = {
+        name: request.body.name,
+        description: request.body.description,
+        author: request.body.author,
+        publisher: request.body.publisher,
+        category: request.body.category,
+        price: request.body.price,
+        releasedate: request.body.releasedate,
+        image: request.body.image
+        }
+    await editBook(id, editedBook);
+    response.redirect("/admin/menu")
 })
 
 // Path for processing the delete form
@@ -90,6 +113,13 @@ async function getBooks() {
     let results = db.collection("books").find({})
     return await results.toArray(); // Convert results to an array
 }
+
+// Get a specific book from the books collection
+async function getBookById(id) {
+    db = await connection();
+    let book = await db.collection("books").findOne({_id: new ObjectId(id)});
+    return book;
+}
  
 // Insert one book into books collection
 async function addBook(newBook){
@@ -98,9 +128,21 @@ async function addBook(newBook){
     console.log("book added");
 }
 
+// Edit one book from books collection
+async function editBook(id, editedBook){
+    db = await connection();
+    const updateIdFilter = { _id: new ObjectId(id) };
+    const updateOperation = { 
+        $set: editedBook
+    };
+    await db.collection("books").updateOne(updateIdFilter, updateOperation);
+    console.log("book with id " + id + " has been successfully edited");
+}
+
 // Delete one book from books collection
 async function deleteBook(id){
     db = await connection();
     const deleteIdFilter = { _id: new ObjectId(id) };
     await db.collection("books").deleteOne(deleteIdFilter);
+    console.log("book with id " + id + " has been successfully deleted");
 }
